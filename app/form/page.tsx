@@ -14,28 +14,28 @@ export default function Page() {
                 </div>
                 <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in">
                     <label htmlFor="fullName" className="mx-4 px-2 pt-4 font-bold text-cyan-900">Full Name</label>
-                    <input name="fullName" onChange={e => updateForm({ ...form, fullName: e.target.value } as IForm)} type="text" placeholder="e.g. John Doe" required className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <input name="fullName" value={form.fullName} onChange={e => updateForm({ ...form, fullName: e.target.value } as IForm)} type="text" placeholder="e.g. John Doe" required className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                     <label htmlFor="emailAddress" className="mx-4 px-2 pt-4 font-bold text-cyan-900">Email Address</label>
-                    <input name="emailAddress" onChange={e => updateForm({ ...form, emailAddress: e.target.value } as IForm)} type="email" placeholder="e.g. john.doe@company.org" required className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <input name="emailAddress" value={form.emailAddress} onChange={e => updateForm({ ...form, emailAddress: e.target.value } as IForm)} type="email" placeholder="e.g. john.doe@company.org" required className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                     <label htmlFor="phoneNumber" className="mx-4 px-2 pt-4 font-bold text-cyan-900">Phone Number</label>
-                    <input name="phoneNumber" onChange={e => updateForm({ ...form, phoneNumber: e.target.value } as IForm)} type="tel" placeholder="e.g. 9999992222" required className="w-2/4 mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <input name="phoneNumber" value={form.phoneNumber} onChange={e => updateForm({ ...form, phoneNumber: e.target.value } as IForm)} type="tel" placeholder="e.g. 9999992222" required className="w-2/4 mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                 </div>
                 <div className="w-full my-8 fade-in">
                     <hr />
                 </div>
                 <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in">
                     <label htmlFor="startupName" className="mx-4 px-2 pt-4 font-bold text-cyan-900">Startup Name</label>
-                    <input name="startupName" onChange={e => updateForm({ ...form, startupName: e.target.value } as IForm)} type="text" placeholder="e.g. PraSha Sync" required className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <input name="startupName" value={form.startupName} onChange={e => updateForm({ ...form, startupName: e.target.value } as IForm)} type="text" placeholder="e.g. PraSha Sync" required className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                     <label htmlFor="foundersRole" className="mx-4 px-2 pt-4 font-bold text-cyan-900">Founder's Role</label>
-                    <input name="foundersRole" onChange={e => updateForm({ ...form, founderRole: e.target.value } as IForm)} type="text" placeholder="e.g. President, CEO, etc." required className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <input name="foundersRole" value={form.founderRole} onChange={e => updateForm({ ...form, founderRole: e.target.value } as IForm)} type="text" placeholder="e.g. President, CEO, etc." required className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                     <label htmlFor="yearsOfExperience" className="mx-4 px-2 pt-4 font-bold text-cyan-900">Year's of Experience</label>
-                    <input name="yearsOfExperience" onChange={e => updateForm({ ...form, yearsOfExperience: parseInt(e.target.value) } as IForm)} type="number" placeholder="e.g. 5" className="w-1/4 mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <input name="yearsOfExperience" value={form.yearsOfExperience} onChange={e => updateForm({ ...form, yearsOfExperience: parseInt(e.target.value) } as IForm)} type="number" placeholder="e.g. 5" className="w-1/4 mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                     <label htmlFor="linkedInProfile" className="mx-4 px-2 pt-4 font-bold text-cyan-900">LinkedIn Profile</label>
-                    <input name="linkedInProfile" onChange={e => updateForm({ ...form, linkedInProfile: e.target.value } as IForm)} type="text" placeholder="e.g. https://linkedin.com/in/johndoe" className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <input name="linkedInProfile" value={form.linkedInProfile} onChange={e => updateForm({ ...form, linkedInProfile: e.target.value } as IForm)} type="text" placeholder="e.g. https://linkedin.com/in/johndoe" className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                     <label htmlFor="shortBio" className="mx-4 px-2 pt-4 font-bold text-cyan-900">Short Bio/Experience</label>
-                    <textarea name="shortBio" onChange={e => updateForm({ ...form, shortBio: e.target.value } as IForm)} rows={5} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <textarea name="shortBio" value={form.shortBio} onChange={e => updateForm({ ...form, shortBio: e.target.value } as IForm)} rows={5} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                     <label htmlFor="location" className="mx-4 px-2 pt-4 font-bold text-cyan-900">Location</label>
-                    <select name="location" onChange={e => updateForm({ ...form, location: e.target.value } as IForm)} className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600">
+                    <select name="location" value={form.location} onChange={e => updateForm({ ...form, location: e.target.value } as IForm)} className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600">
                         <option value="">--Please choose an option--</option>
                         <option value="New York">New York</option>
                         <option value="Los Angeles">Los Angeles</option>

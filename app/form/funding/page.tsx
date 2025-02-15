@@ -1,24 +1,46 @@
+"use client"; // This is a client component
+import { useFormContext } from "@/app/formContext";
 import Link from "next/link";
 
 export default function Funding() {
+    const [form, updateform] = useFormContext();
+
+    const updateAnswer = (key: string, value: string) => {
+        if (key === form.section4.question1.key) {
+            form.section4.question1.answer = value;
+        } else if (key === form?.section4.question2.key) {
+            form.section4.question2.answer = value;
+        } else if (key === form?.section4.question3.key) {
+            form.section4.question3.answer = value;
+        } else if (key === form?.section4.question4.key) {
+            form.section4.question4.answer = value;
+        } else if (key === form?.section4.question5.key) {
+            form.section4.question5.answer = value;
+        } else {
+            console.log('Invalid Key');
+        }
+
+        updateform(form);
+    }
+
     return (
         <div className="w-full">
             <div className="w-[50vw] mx-auto px-12 py-12 flex flex-col flex-nowrap bg-gray-100">
                 <div className="w-full flex flex-col flex-nowrap mx-4 mt-8 mb-2 fade-in">
-                    <h2 className="text-2xl font-bold text-cyan-900">Funding & Future</h2>
+                    <h2 className="text-2xl font-bold text-cyan-900">{form?.section4.title}</h2>
                     <p className="text-xl mt-2 text-cyan-800">Fantastic! Now let's talk about some financial aspects of your startup!</p>
                 </div>
                 <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in">
-                    <label htmlFor="section1a" className="mx-4 px-2 pt-4 font-bold text-cyan-900">How much funding are you seeking? How will you use the investment? (Funding needs, capital allocation plan)</label>
-                    <textarea name="section1a" rows={2} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
-                    <label htmlFor="section1b" className="mx-4 px-2 pt-4 font-bold text-cyan-900">What are your long-term goals for the company? (Vision, ambition, sustainability)</label>
-                    <textarea name="section1b" rows={2} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
-                    <label htmlFor="section1c" className="mx-4 px-2 pt-4 font-bold text-cyan-900">What is your exit strategy or potential acquisition plan? (Long-term business trajectory)</label>
-                    <textarea name="section1c" rows={2} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
-                    <label htmlFor="section1d" className="mx-4 px-2 pt-4 font-bold text-cyan-900">What are your biggest concerns about the future of the company? (Risk assessment, contingency planning)</label>
-                    <textarea name="section1d" rows={2} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
-                    <label htmlFor="section1e" className="mx-4 px-2 pt-4 font-bold text-cyan-900">What is your timeline for achieving your next milestone (e.g., product launch, revenue targets)?</label>
-                    <textarea name="section1e" rows={2} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <label htmlFor={form?.section4.question1.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section4.question1.question}</label>
+                    <textarea name={form?.section4.question1.key} value={form?.section4.question1.answer} onChange={e => updateAnswer(form?.section4.question1.key, e.target.value)} rows={2} placeholder="e.g. The product ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <label htmlFor={form?.section4.question2.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section4.question2.question}</label>
+                    <textarea name={form?.section4.question2.key} value={form?.section4.question2.answer} onChange={e => updateAnswer(form?.section4.question2.key, e.target.value)} rows={2} placeholder="e.g. An Ideal customer ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <label htmlFor={form?.section4.question3.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section4.question3.question}</label>
+                    <textarea name={form?.section4.question3.key} value={form?.section4.question3.answer} onChange={e => updateAnswer(form?.section4.question3.key, e.target.value)} rows={2} placeholder="e.g. The market ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <label htmlFor={form?.section4.question4.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section4.question4.question}</label>
+                    <textarea name={form?.section4.question4.key} value={form?.section4.question4.answer} onChange={e => updateAnswer(form?.section4.question4.key, e.target.value)} rows={2} placeholder="e.g. The product is unique because ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
+                    <label htmlFor={form?.section4.question5.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section4.question5.question}</label>
+                    <textarea name={form?.section4.question5.key} value={form?.section4.question5.answer} onChange={e => updateAnswer(form?.section4.question5.key, e.target.value)} rows={2} placeholder="e.g. The biggest barriers ..." className="mx-4 my-2 px-3 py-4 text-lg text-cyan-800 rounded-md border border-cyan-600" />
                 </div>
                 <div className="w-full mt-8 fade-in">
                     <hr />
