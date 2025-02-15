@@ -7,8 +7,8 @@ export default function Page() {
 
     return (
         <div className="w-full">
-            <div className="w-[50vw] mx-auto px-12 py-12 flex flex-col flex-nowrap bg-gray-100">
-                <div className="w-full flex flex-col flex-nowrap mx-4 my-8 fade-in">
+            <div className="lg:w-[50vw] md:mx-auto sm:px-4 md:px-12 py-12 flex flex-col flex-nowrap bg-gray-100">
+                <div className="w-full flex flex-col flex-nowrap my-8 mx-4 fade-in">
                     <h2 className="text-2xl font-bold text-cyan-900">Founder's Information</h2>
                     <p className="text-xl mt-2 text-cyan-800">Let's get started by filling out some basic information about your startup!</p>
                 </div>
@@ -48,13 +48,13 @@ export default function Page() {
                 <div className="w-full mt-8 fade-in">
                     <hr />
                 </div>
-                <div className="w-full flex flex-row flex-nowrap mx-auto mt-4 mb-2 justify-end items-center fade-in">
+                <div className="w-full flex flex-row flex-nowrap mt-4 mb-2 justify-end items-center fade-in">
                     <div>
                         {/* <button type="button" className="text-lg font-bold text-cyan-800 hover:text-cyan-950">Previous</button> */}
                     </div>
                     <div className="flex flex-row flex-nowrap justify-end items-center">
                         <button type="button" className="mr-4 py-2 px-4 rounded-md text-lg tracking-wider bg-cyan-700 text-white hover:bg-cyan-800">Save Draft</button>
-                        <Link href="/form/idea" className="ml-4 text-lg font-bold text-cyan-800 hover:text-cyan-950">Next</Link>
+                        <Link href="/form/idea" className="md:ml-4 mx-4 text-lg font-bold text-cyan-800 hover:text-cyan-950">Next</Link>
                     </div>
                 </div>
             </div>

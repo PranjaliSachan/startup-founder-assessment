@@ -25,7 +25,7 @@ export default function Additional() {
 
     return (
         <div className="w-full">
-            <div className="w-[50vw] mx-auto px-12 py-12 flex flex-col flex-nowrap bg-gray-100">
+            <div className="lg:w-[50vw] md:mx-auto sm:px-4 md:px-12 py-12 flex flex-col flex-nowrap bg-gray-100">
                 <div className="w-full flex flex-col flex-nowrap mx-4 mt-8 mb-2 fade-in">
                     <h2 className="text-2xl font-bold text-cyan-900">{form?.additional.title}</h2>
                     <p className="text-xl mt-2 text-cyan-800">Just one last step! Let’s explore your upcoming milestones, customer strategies, fundraising experiences, and leadership lessons!</p>
@@ -45,11 +45,11 @@ export default function Additional() {
                 </div>
                 <div className="w-full flex flex-row flex-nowrap mx-auto mt-4 mb-2 justify-between items-center fade-in">
                     <div>
-                        <Link href="/form/culture" className="ml-4 text-lg font-bold text-cyan-800 hover:text-cyan-950">Previous</Link>
+                        <Link href="/form/culture" className="md:ml-4 mx-4 text-lg font-bold text-cyan-800 hover:text-cyan-950">Previous</Link>
                     </div>
                     <div className="flex flex-row flex-nowrap justify-end items-center">
                         <button type="button" className="mr-2 py-2 px-4 rounded-md text-lg tracking-wider bg-cyan-700 text-white hover:bg-cyan-800">Save Draft</button>
-                        <button type="button" className="ml-2 py-2 px-4 rounded-md text-lg tracking-wider bg-cyan-700 text-white hover:bg-cyan-800">Submit</button>
+                        <button type="button" className="md:ml-2 mx-4 py-2 px-4 rounded-md text-lg tracking-wider bg-cyan-700 text-white hover:bg-cyan-800">Submit</button>
                     </div>
                 </div>
             </div>
