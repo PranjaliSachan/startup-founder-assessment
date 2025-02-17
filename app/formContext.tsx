@@ -1,5 +1,5 @@
 "use client"; // This is a client component
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 export type ISectionQuestion = {
     key: string;
@@ -211,9 +211,9 @@ const formDefaults: IForm = {
     }
 };
 
-type IFormContext = [IForm, React.Dispatch<React.SetStateAction<IForm>>];
+type IFormContext = [IForm, React.Dispatch<React.SetStateAction<IForm>>, any];
 
-const FormContext = createContext<IFormContext>([formDefaults, () => null]);
+const FormContext = createContext<IFormContext>([formDefaults, () => null, () => null]);
 
 export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [form, setForm] = useState<IForm>(formDefaults);
@@ -222,8 +222,22 @@ export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setForm(prevData => ({ ...prevData, ...newData }));
     };
 
+    const saveDraft = () => {
+        if (localStorage.getItem('assessmentForm')) {
+            localStorage.removeItem('assessmentForm');
+        }
+        localStorage.setItem('assessmentForm', JSON.stringify(form));
+    };
+
+    useEffect(() => {
+        const localForm = localStorage.getItem('assessmentForm');
+        if (localForm) {
+            updateForm(JSON.parse(localForm));
+        }
+    }, []);
+
     return (
-        <FormContext.Provider value={[form, updateForm]}>
+        <FormContext.Provider value={[form, updateForm, saveDraft]}>
             {children}
         </FormContext.Provider>
     );

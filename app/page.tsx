@@ -8,7 +8,7 @@ export default function Home() {
           <h1 className="text-5xl text-white font-semibold fade-in-up">Startup Founder's Assessment</h1>
         </div>
         <div className="w-full mx-3 mt-4 pt-8 pb-20 flex flex-row sm:justify-start md:justify-center items-center">
-          <Link href="/form" className="text-xl tracking-wider bg-cyan-200 px-6 py-4 rounded-lg hover:bg-cyan-400 fade-in-up">
+          <Link href="/form" className="text-xl tracking-wider bg-indigo-600 text-white px-6 py-4 rounded-lg hover:bg-indigo-700 fade-in-up">
             Get Started
           </Link>
         </div>
