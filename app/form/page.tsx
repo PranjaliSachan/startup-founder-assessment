@@ -13,11 +13,11 @@ export default function Page() {
     const [validEmail, setValidEmail] = useState(validateEmail(form.emailAddress ?? ''));
 
     const checkFormValid = () => {
-        return form.fullName !== ''
-            && form.emailAddress !== ''
-            && form.phoneNumber !== ''
-            && form.startupName !== ''
-            && form.founderRole !== '';
+        return (form.fullName !== undefined && form.fullName !== '')
+            && (form.emailAddress !== undefined && form.emailAddress.trim() !== '')
+            && (form.phoneNumber !== undefined && form.phoneNumber.trim() !== '')
+            && (form.startupName !== undefined && form.startupName.trim() !== '')
+            && (form.founderRole !== undefined && form.founderRole.trim() !== '');
     }
     const [formValid, setFormValid] = useState(checkFormValid());
 
@@ -67,7 +67,7 @@ export default function Page() {
                     <input name="emailAddress" value={form.emailAddress} onChange={e => validateRequiredInputs('emailAddress', e.target.value)} type="email" placeholder="e.g. john.doe@company.org" required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.emailAddress && form.emailAddress !== '' && validateEmail(form.emailAddress) ? "border-none" : "border-red-600")} />
                     {form.emailAddress && form.emailAddress !== '' && validateEmail(form.emailAddress) ? (<></>) : (<small className="mx-4 px-4 italic text-red-600">Email address missing or invalid!</small>)}
                     <label htmlFor="phoneNumber" className="mx-4 px-2 pt-4 font-bold">Phone Number</label>
-                    <input name="phoneNumber" value={form.phoneNumber} onChange={e => validateRequiredInputs('phoneNumber', e.target.value)} type="tel" minLength={10} maxLength={10} placeholder="Format: xxxxxxxxxx" required className={"w-2/4 mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.phoneNumber && form.phoneNumber !== '' && form.phoneNumber.length === 10 ? "border-none" : "border-red-600")} />
+                    <input name="phoneNumber" value={form.phoneNumber} onChange={e => validateRequiredInputs('phoneNumber', e.target.value)} type="tel" minLength={10} maxLength={10} placeholder="10 digit Phone Number" required className={"w-2/4 mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.phoneNumber && form.phoneNumber !== '' && form.phoneNumber.length === 10 ? "border-none" : "border-red-600")} />
                     {form.phoneNumber && form.phoneNumber !== '' && form.phoneNumber.length === 10 ? (<></>) : (<small className="mx-4 px-4 italic text-red-600">Phone number is missing or invalid!</small>)}
                 </div>
                 <div className="w-full my-8 fade-in">

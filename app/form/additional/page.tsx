@@ -30,15 +30,15 @@ export default function Additional() {
                     <h2 className="text-2xl font-bold">{form?.additional.title}</h2>
                     <p className="text-xl mt-2">Just one last step! Let’s explore your upcoming milestones, customer strategies, fundraising experiences, and leadership lessons!</p>
                 </div>
-                <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in">
-                    <label htmlFor={form?.additional.question1.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.additional.question1.question}</label>
-                    <textarea name={form?.additional.question1.key} value={form?.additional.question1.answer} onChange={e => updateAnswer(form?.additional.question1.key, e.target.value)} rows={2} placeholder="e.g. The product ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
-                    <label htmlFor={form?.additional.question2.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.additional.question2.question}</label>
-                    <textarea name={form?.additional.question2.key} value={form?.additional.question2.answer} onChange={e => updateAnswer(form?.additional.question2.key, e.target.value)} rows={2} placeholder="e.g. An Ideal customer ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
-                    <label htmlFor={form?.additional.question3.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.additional.question3.question}</label>
-                    <textarea name={form?.additional.question3.key} value={form?.additional.question3.answer} onChange={e => updateAnswer(form?.additional.question3.key, e.target.value)} rows={2} placeholder="e.g. The market ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
-                    <label htmlFor={form?.additional.question4.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.additional.question4.question}</label>
-                    <textarea name={form?.additional.question4.key} value={form?.additional.question4.answer} onChange={e => updateAnswer(form?.additional.question4.key, e.target.value)} rows={2} placeholder="e.g. The product is unique because ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in text-black">
+                    <label htmlFor={form?.additional.question1.key} className="mx-4 px-2 pt-4 font-bold">{form?.additional.question1.question}</label>
+                    <textarea name={form?.additional.question1.key} value={form?.additional.question1.answer} onChange={e => updateAnswer(form?.additional.question1.key, e.target.value)} rows={2} placeholder="e.g. The key milestones ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <label htmlFor={form?.additional.question2.key} className="mx-4 px-2 pt-4 font-bold">{form?.additional.question2.question}</label>
+                    <textarea name={form?.additional.question2.key} value={form?.additional.question2.answer} onChange={e => updateAnswer(form?.additional.question2.key, e.target.value)} rows={2} placeholder="e.g. To retain customers ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <label htmlFor={form?.additional.question3.key} className="mx-4 px-2 pt-4 font-bold">{form?.additional.question3.question}</label>
+                    <textarea name={form?.additional.question3.key} value={form?.additional.question3.answer} onChange={e => updateAnswer(form?.additional.question3.key, e.target.value)} rows={2} placeholder="e.g. The challenges that I faced during fundraising ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <label htmlFor={form?.additional.question4.key} className="mx-4 px-2 pt-4 font-bold">{form?.additional.question4.question}</label>
+                    <textarea name={form?.additional.question4.key} value={form?.additional.question4.answer} onChange={e => updateAnswer(form?.additional.question4.key, e.target.value)} rows={2} placeholder="e.g. I learned ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
                 </div>
                 <div className="w-full mt-8 fade-in">
                     <hr />

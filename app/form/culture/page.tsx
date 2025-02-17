@@ -26,21 +26,21 @@ export default function Culture() {
     return (
         <div className="w-full">
             <div className="lg:w-[50vw] md:mx-auto sm:px-4 md:px-12 py-12 flex flex-col flex-nowrap bg-gray-100 text-black">
-                <div className="w-full flex flex-col flex-nowrap mx-4 mt-8 mb-2 fade-in">
+                <div className="w-full flex flex-col flex-nowrap mx-4 mt-8 mb-2 fade-in text-black">
                     <h2 className="text-2xl font-bold">{form?.section5.title}</h2>
                     <p className="text-xl mt-2">Wonderful! Now let’s dive into your personal motivation, leadership style, and how you build a strong, resilient team!</p>
                 </div>
-                <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in">
-                    <label htmlFor={form?.section5.question1.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section5.question1.question}</label>
-                    <textarea name={form?.section5.question1.key} value={form?.section5.question1.answer} onChange={e => updateAnswer(form?.section5.question1.key, e.target.value)} rows={2} placeholder="e.g. The product ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
-                    <label htmlFor={form?.section5.question2.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section5.question2.question}</label>
-                    <textarea name={form?.section5.question2.key} value={form?.section5.question2.answer} onChange={e => updateAnswer(form?.section5.question2.key, e.target.value)} rows={2} placeholder="e.g. An Ideal customer ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
-                    <label htmlFor={form?.section5.question3.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section5.question3.question}</label>
-                    <textarea name={form?.section5.question3.key} value={form?.section5.question3.answer} onChange={e => updateAnswer(form?.section5.question3.key, e.target.value)} rows={2} placeholder="e.g. The market ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
-                    <label htmlFor={form?.section5.question4.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section5.question4.question}</label>
-                    <textarea name={form?.section5.question4.key} value={form?.section5.question4.answer} onChange={e => updateAnswer(form?.section5.question4.key, e.target.value)} rows={2} placeholder="e.g. The product is unique because ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
-                    <label htmlFor={form?.section5.question5.key} className="mx-4 px-2 pt-4 font-bold text-cyan-900">{form?.section5.question5.question}</label>
-                    <textarea name={form?.section5.question5.key} value={form?.section5.question5.answer} onChange={e => updateAnswer(form?.section5.question5.key, e.target.value)} rows={2} placeholder="e.g. The biggest barriers ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in text-black">
+                    <label htmlFor={form?.section5.question1.key} className="mx-4 px-2 pt-4 font-bold">{form?.section5.question1.question}</label>
+                    <textarea name={form?.section5.question1.key} value={form?.section5.question1.answer} onChange={e => updateAnswer(form?.section5.question1.key, e.target.value)} rows={2} placeholder="e.g. I am passionate about this product because ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <label htmlFor={form?.section5.question2.key} className="mx-4 px-2 pt-4 font-bold">{form?.section5.question2.question}</label>
+                    <textarea name={form?.section5.question2.key} value={form?.section5.question2.answer} onChange={e => updateAnswer(form?.section5.question2.key, e.target.value)} rows={2} placeholder="e.g. My personal goals are ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <label htmlFor={form?.section5.question3.key} className="mx-4 px-2 pt-4 font-bold">{form?.section5.question3.question}</label>
+                    <textarea name={form?.section5.question3.key} value={form?.section5.question3.answer} onChange={e => updateAnswer(form?.section5.question3.key, e.target.value)} rows={2} placeholder="e.g. I handle stress by ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <label htmlFor={form?.section5.question4.key} className="mx-4 px-2 pt-4 font-bold">{form?.section5.question4.question}</label>
+                    <textarea name={form?.section5.question4.key} value={form?.section5.question4.answer} onChange={e => updateAnswer(form?.section5.question4.key, e.target.value)} rows={2} placeholder="e.g. I prioritize tasks by ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <label htmlFor={form?.section5.question5.key} className="mx-4 px-2 pt-4 font-bold">{form?.section5.question5.question}</label>
+                    <textarea name={form?.section5.question5.key} value={form?.section5.question5.answer} onChange={e => updateAnswer(form?.section5.question5.key, e.target.value)} rows={2} placeholder="e.g. I keep my team motivated by ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
                 </div>
                 <div className="w-full mt-8 fade-in">
                     <hr />
