@@ -218,6 +218,7 @@ const FormContext = createContext<IFormContext>([formDefaults, () => null, () =>
 export const FormProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [form, setForm] = useState<IForm>(formDefaults);
 
+
     const updateForm = (newData: any) => {
         setForm(prevData => ({ ...prevData, ...newData }));
     };

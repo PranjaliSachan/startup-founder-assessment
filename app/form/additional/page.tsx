@@ -3,7 +3,7 @@ import { useFormContext } from "@/app/formContext";
 import Link from "next/link";
 
 export default function Additional() {
-    const [form, updateform] = useFormContext();
+    const [form, updateform, saveDraft] = useFormContext();
 
     const updateAnswer = (key: string, value: string) => {
         if (key === form.additional.question1.key) {
@@ -32,13 +32,13 @@ export default function Additional() {
                 </div>
                 <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in text-black">
                     <label htmlFor={form?.additional.question1.key} className="mx-4 px-2 pt-4 font-bold">{form?.additional.question1.question}</label>
-                    <textarea name={form?.additional.question1.key} value={form?.additional.question1.answer} onChange={e => updateAnswer(form?.additional.question1.key, e.target.value)} rows={2} placeholder="e.g. The key milestones ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <textarea name={form?.additional.question1.key} value={form?.additional.question1.answer} onChange={e => updateAnswer(form?.additional.question1.key, e.target.value)} rows={2} placeholder="e.g. The key milestones ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border border-gray-400" />
                     <label htmlFor={form?.additional.question2.key} className="mx-4 px-2 pt-4 font-bold">{form?.additional.question2.question}</label>
-                    <textarea name={form?.additional.question2.key} value={form?.additional.question2.answer} onChange={e => updateAnswer(form?.additional.question2.key, e.target.value)} rows={2} placeholder="e.g. To retain customers ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <textarea name={form?.additional.question2.key} value={form?.additional.question2.answer} onChange={e => updateAnswer(form?.additional.question2.key, e.target.value)} rows={2} placeholder="e.g. To retain customers ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border border-gray-400" />
                     <label htmlFor={form?.additional.question3.key} className="mx-4 px-2 pt-4 font-bold">{form?.additional.question3.question}</label>
-                    <textarea name={form?.additional.question3.key} value={form?.additional.question3.answer} onChange={e => updateAnswer(form?.additional.question3.key, e.target.value)} rows={2} placeholder="e.g. The challenges that I faced during fundraising ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <textarea name={form?.additional.question3.key} value={form?.additional.question3.answer} onChange={e => updateAnswer(form?.additional.question3.key, e.target.value)} rows={2} placeholder="e.g. The challenges that I faced during fundraising ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border border-gray-400" />
                     <label htmlFor={form?.additional.question4.key} className="mx-4 px-2 pt-4 font-bold">{form?.additional.question4.question}</label>
-                    <textarea name={form?.additional.question4.key} value={form?.additional.question4.answer} onChange={e => updateAnswer(form?.additional.question4.key, e.target.value)} rows={2} placeholder="e.g. I learned ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <textarea name={form?.additional.question4.key} value={form?.additional.question4.answer} onChange={e => updateAnswer(form?.additional.question4.key, e.target.value)} rows={2} placeholder="e.g. I learned ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border border-gray-400" />
                 </div>
                 <div className="w-full mt-8 fade-in">
                     <hr />
@@ -48,8 +48,8 @@ export default function Additional() {
                         <Link href="/form/culture" className="md:ml-4 mx-4 text-lg font-bold text-indigo-800 hover:text-indigo-900">Previous</Link>
                     </div>
                     <div className="flex flex-row flex-nowrap justify-end items-center">
-                        <button type="button" className="mr-2 py-1 px-3 rounded-md text-lg bg-indigo-700 text-white hover:bg-indigo-800">Save Draft</button>
-                        <Link href="/form/submit" className="md:ml-4 mx-4 text-lg font-bold text-indigo-800 hover:text-indigo-900">Submit</Link>
+                        <button type="button" onClick={saveDraft} className="mr-2 py-1 px-3 rounded-md text-lg bg-indigo-700 text-white hover:bg-indigo-800">Save Draft</button>
+                        <Link href="/form/submit" className="md:ml-4 mx-4 text-lg font-bold text-indigo-800 hover:text-indigo-900">Next</Link>
                     </div>
                 </div>
             </div>

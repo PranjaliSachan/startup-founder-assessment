@@ -1,16 +1,17 @@
 "use client"; // This is a client component
 import Link from "next/link";
 import { IForm, useFormContext } from "../formContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Page() {
     const [form, updateForm, saveDraft] = useFormContext();
+    const [formValid, setFormValid] = useState(false);
 
     const validateEmail = (email: string) => {
         const reg = /^\S+@\S+\.\S+$/;
         return reg.test(email);
     }
-    const [validEmail, setValidEmail] = useState(validateEmail(form.emailAddress ?? ''));
+    // const [validEmail, setValidEmail] = useState(validateEmail(form.emailAddress ?? ''));
 
     const checkFormValid = () => {
         return (form.fullName !== undefined && form.fullName !== '')
@@ -19,7 +20,6 @@ export default function Page() {
             && (form.startupName !== undefined && form.startupName.trim() !== '')
             && (form.founderRole !== undefined && form.founderRole.trim() !== '');
     }
-    const [formValid, setFormValid] = useState(checkFormValid());
 
     const validateRequiredInputs = (inputKey: string, value: string) => {
         switch (inputKey) {
@@ -52,6 +52,12 @@ export default function Page() {
         }
     };
 
+    useEffect(() => {
+        if (checkFormValid()) {
+            setFormValid(true);
+        }
+    }, [updateForm]);
+
     return (
         <div className="w-full">
             <div className="lg:w-[50vw] md:mx-auto sm:px-4 md:px-12 py-12 flex flex-col flex-nowrap bg-gray-100 text-black">
@@ -61,13 +67,13 @@ export default function Page() {
                 </div>
                 <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in">
                     <label htmlFor="fullName" className="mx-4 px-2 pt-4 font-bold">Full Name</label>
-                    <input name="fullName" value={form.fullName} onChange={e => validateRequiredInputs('fullName', e.target.value)} type="text" placeholder="e.g. John Doe" required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.fullName && form.fullName !== '' ? "border-none" : "border-red-600")} />
+                    <input name="fullName" value={form.fullName} onChange={e => validateRequiredInputs('fullName', e.target.value)} type="text" placeholder="e.g. John Doe" required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.fullName && form.fullName !== '' ? "border-gray-400" : "border-red-600")} />
                     {form.fullName && form.fullName !== '' ? (<></>) : (<small className="mx-4 px-4 italic text-red-600">Full name is required!</small>)}
                     <label htmlFor="emailAddress" className="mx-4 px-2 pt-4 font-bold">Email Address</label>
-                    <input name="emailAddress" value={form.emailAddress} onChange={e => validateRequiredInputs('emailAddress', e.target.value)} type="email" placeholder="e.g. john.doe@company.org" required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.emailAddress && form.emailAddress !== '' && validateEmail(form.emailAddress) ? "border-none" : "border-red-600")} />
+                    <input name="emailAddress" value={form.emailAddress} onChange={e => validateRequiredInputs('emailAddress', e.target.value)} type="email" placeholder="e.g. john.doe@company.org" required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.emailAddress && form.emailAddress !== '' && validateEmail(form.emailAddress) ? "border-gray-400" : "border-red-600")} />
                     {form.emailAddress && form.emailAddress !== '' && validateEmail(form.emailAddress) ? (<></>) : (<small className="mx-4 px-4 italic text-red-600">Email address missing or invalid!</small>)}
                     <label htmlFor="phoneNumber" className="mx-4 px-2 pt-4 font-bold">Phone Number</label>
-                    <input name="phoneNumber" value={form.phoneNumber} onChange={e => validateRequiredInputs('phoneNumber', e.target.value)} type="tel" minLength={10} maxLength={10} placeholder="10 digit Phone Number" required className={"w-2/4 mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.phoneNumber && form.phoneNumber !== '' && form.phoneNumber.length === 10 ? "border-none" : "border-red-600")} />
+                    <input name="phoneNumber" value={form.phoneNumber} onChange={e => validateRequiredInputs('phoneNumber', e.target.value)} type="tel" minLength={10} maxLength={10} placeholder="10 digit Phone Number" required className={"w-2/4 mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.phoneNumber && form.phoneNumber !== '' && form.phoneNumber.length === 10 ? "border-gray-400" : "border-red-600")} />
                     {form.phoneNumber && form.phoneNumber !== '' && form.phoneNumber.length === 10 ? (<></>) : (<small className="mx-4 px-4 italic text-red-600">Phone number is missing or invalid!</small>)}
                 </div>
                 <div className="w-full my-8 fade-in">
@@ -75,19 +81,19 @@ export default function Page() {
                 </div>
                 <div className="w-full flex flex-col flex-nowrap mx-auto my-2 fade-in">
                     <label htmlFor="startupName" className="mx-4 px-2 pt-4 font-bold">Startup Name</label>
-                    <input name="startupName" value={form.startupName} onChange={e => validateRequiredInputs('startupName', e.target.value)} type="text" placeholder="e.g. PraSha Sync" required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.startupName && form.startupName !== '' ? "border-none" : "border-red-600")} />
+                    <input name="startupName" value={form.startupName} onChange={e => validateRequiredInputs('startupName', e.target.value)} type="text" placeholder="e.g. PraSha Sync" required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.startupName && form.startupName !== '' ? "border-gray-400" : "border-red-600")} />
                     {form.startupName && form.startupName !== '' ? (<></>) : (<small className="mx-4 px-4 italic text-red-600">Startup name is required!</small>)}
                     <label htmlFor="foundersRole" className="mx-4 px-2 pt-4 font-bold">Founder's Role</label>
-                    <input name="foundersRole" value={form.founderRole} onChange={e => validateRequiredInputs('foundersRole', e.target.value)} type="text" placeholder="e.g. President, CEO, etc." required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.founderRole && form.founderRole !== '' ? "border-none" : "border-red-600")} />
+                    <input name="foundersRole" value={form.founderRole} onChange={e => validateRequiredInputs('foundersRole', e.target.value)} type="text" placeholder="e.g. President, CEO, etc." required className={"mx-4 my-2 px-3 py-4 text-lg rounded-md border " + (form.founderRole && form.founderRole !== '' ? "border-gray-400" : "border-red-600")} />
                     {form.founderRole && form.founderRole !== '' ? (<></>) : (<small className="mx-4 px-4 italic text-red-600">Founder role is required!</small>)}
                     <label htmlFor="yearsOfExperience" className="mx-4 px-2 pt-4 font-bold">Year's of Experience</label>
-                    <input name="yearsOfExperience" value={form.yearsOfExperience} onChange={e => updateForm({ ...form, yearsOfExperience: parseInt(e.target.value) } as IForm)} type="number" placeholder="e.g. 5" className="w-1/4 mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <input name="yearsOfExperience" value={form.yearsOfExperience} onChange={e => updateForm({ ...form, yearsOfExperience: parseInt(e.target.value) } as IForm)} type="number" placeholder="e.g. 5" className="w-1/4 mx-4 my-2 px-3 py-4 text-lg rounded-md border border-gray-400" />
                     <label htmlFor="linkedInProfile" className="mx-4 px-2 pt-4 font-bold">LinkedIn Profile</label>
-                    <input name="linkedInProfile" value={form.linkedInProfile} onChange={e => updateForm({ ...form, linkedInProfile: e.target.value } as IForm)} type="text" placeholder="e.g. https://linkedin.com/in/johndoe" className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <input name="linkedInProfile" value={form.linkedInProfile} onChange={e => updateForm({ ...form, linkedInProfile: e.target.value } as IForm)} type="text" placeholder="e.g. https://linkedin.com/in/johndoe" className="mx-4 my-2 px-3 py-4 text-lg rounded-md border border-gray-400" />
                     <label htmlFor="shortBio" className="mx-4 px-2 pt-4 font-bold">Short Bio/Experience</label>
-                    <textarea name="shortBio" value={form.shortBio} onChange={e => updateForm({ ...form, shortBio: e.target.value } as IForm)} rows={5} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border" />
+                    <textarea name="shortBio" value={form.shortBio} onChange={e => updateForm({ ...form, shortBio: e.target.value } as IForm)} rows={5} placeholder="e.g. I have ..." className="mx-4 my-2 px-3 py-4 text-lg rounded-md border border-gray-400" />
                     <label htmlFor="location" className="mx-4 px-2 pt-4 font-bold">Location</label>
-                    <select name="location" value={form.location} onChange={e => updateForm({ ...form, location: e.target.value } as IForm)} className="mx-4 my-2 px-3 py-4 text-lg rounded-md border">
+                    <select name="location" value={form.location} onChange={e => updateForm({ ...form, location: e.target.value } as IForm)} className="mx-4 my-2 px-3 py-4 text-lg rounded-md border border-gray-400">
                         <option value="">--Please choose an option--</option>
                         <option value="New York">New York</option>
                         <option value="Los Angeles">Los Angeles</option>
