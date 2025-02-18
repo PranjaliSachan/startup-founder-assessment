@@ -16,10 +16,12 @@ First, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- This project uses localStorage to save drafts since the assessment involves multiple steps. 
+- The project uses [`useContext`](https://react.dev/reference/react/useContext) to manage state.
+- To capture the response for the assessment, this project uses [`formspree`](https://formspree.io/).
+- This project uses responsive classes from [`Tailwind CSS`](https://tailwindcss.com/).
 
-
-This project uses [`formspree`](https://formspree.io/) to submit response for the assessment.
 
 ## Learn More
 
